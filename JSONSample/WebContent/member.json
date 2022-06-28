@@ -1,0 +1,20 @@
+[
+	{
+		"name":"정수동",
+		"age":23,
+		"address":"서울시",
+		"height":182.2
+	},
+	{
+		"name":"aaa",
+		"age":24,
+		"address":"부천시",
+		"height":183.2
+	},
+	{
+		"name":"bbb",
+		"age":25,
+		"address":"인천시",
+		"height":175.2
+	}
+]
