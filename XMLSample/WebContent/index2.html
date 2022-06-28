@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(this.readyState == 4 && this.status == 200) {
+		// nodeValueFunc(this);
+		// nodeNameFunc(this);
+		dataFunc(this);
+	}
+}
+
+xhttp.open("GET", "movie.xml", true);
+xhttp.send();
+
+function nodeValueFunc(xml) {
+	let arr, txt, xmlDoc;
+	
+	xmlDoc = xml.responseXML;
+	txt = "";
+	arr = xmlDoc.getElementByTagName("제목");
+	
+	for (var i = 0; i < arr.length; i++) {
+		txt += arr[i].childNodes[0].nodeValue + "<br>";
+	}
+	
+	document.getElementById("demo").innerHTML = txt;
+	
+}
+
+function nodeNameFunc(xml) {
+	let arr, txt, xmlDoc;
+	
+	xmlDoc = xml.responseXML;
+	txt = "";
+	
+	arr = xmlDoc.documentElement.childNodes;
+	
+	for (var i = 0; i < arr.length; i++) {
+		if(arr[i].nodeType == 1) {
+			txt += arr[i].nodeName + "<br>";	
+		}
+	}
+	
+	document.getElementById('demo').innerHTML = txt
+	
+}
+
+function dataFunc(xml) {
+	let arr, txt, xmlDoc;
+	
+	xmlDoc = xml.responseXML;
+	txt = "";
+	
+	arr = xmlDoc.getElementsByTagName("영화")[0];
+	let xlen = arr.childNodes.length;
+	
+	alert("xlin:" + xlen);
+	
+	y = arr.firstChild;
+	
+	for (var i = 0; i < arr.length; i++) {
+		if(y.nodeType == 1) {
+			txt += i + ":"  + y.nodeName + ":" + y.childNodes[0].nodeValue + "<br>";
+		}
+		y = y.nextSibling;
+	}
+	document.getElementById('demo').innerHTML = txt;
+}
+
+</script>
+</body>
+</html>
