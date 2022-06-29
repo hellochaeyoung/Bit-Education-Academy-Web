@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 위처럼 웹에서 가져오는 방법보다 파일로 저장해서 프로젝트에 직접 갖고 있는 방법이 더 빠르다
+            .min.js -> 이렇게 경량화 시켜놓은 것을 대부분 사용한다 -->
+    <title>Title</title>
+
+</head>
+<body>
+
+<!--
+    javascript : Client(front) - View
+                 화면의 resource(input)의 값을 설정, 취득하는 처리
+                 DOM(nodelist, getElementById)
+
+    JQuery : JavaScript 경량화, 간략화
+             Ajax(비동기 통신)
+
+-->
+<p>여기가 p 태그 입니다.</p>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+       // render 후에 실행된다
+        alert('document ready');
+
+        // let p = document.getElementsByTagName('p').innerHTML;
+        let p = $("p").html();
+        alert(p);
+
+       // $('p').html('<b>hello jquery</b>');
+        //$('p').text('hello jquery');
+
+
+    });
+
+    $(function () {
+
+    });
+
+</script>
+
+<p id="demo">Hello p tag</p>
+
+<h3 class="cls">world h3 class cls</h3>
+
+<p class="cls">world p class cls</p>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        let demo = $("#demo").html();
+        alert(demo);
+
+        $("#demo").text('안녕 p 태그');
+
+        $(".cls").text('class cls 입니다');
+
+        // JavaScript
+        let arrPtag = document.getElementsByTagName('p');
+        for (var i=0;i<arrPtag.length;i++) {
+            arrPtag[i].innerHTML = '';
+        }
+    });
+
+</script>
+
+
+
+</body>
+</html>
