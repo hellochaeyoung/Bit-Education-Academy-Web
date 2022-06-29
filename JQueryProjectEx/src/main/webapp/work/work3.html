@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<h2>image insert/remove</h2>
+
+<div class="pic"></div>
+
+
+<script>
+    $(document).ready(function () {
+
+        for (var i = 1; i <= 9; i++) {
+            let img = $("<img></img>").attr({
+                "src" : "./images/photo_" + i + ".jpg",
+                "class" : "myImage"
+            });
+            $('.pic').append(img);
+        }
+
+        $('myImage').click(function () {
+            $(this).remove();
+        })
+    })
+
+</script>
+</body>
+</html>

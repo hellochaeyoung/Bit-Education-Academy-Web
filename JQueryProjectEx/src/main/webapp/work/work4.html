@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<h1>동적 테이블</h1>
+
+<table border="1" id="list_table">
+  <colgroup>
+    <col style="width: 70px">
+    <col style="width: 200px">
+    <col style="width: 300px">
+    <col style="width: 200px">
+  </colgroup>
+  <thead>
+    <th>번호</th><th>이름</th><th>생년월일</th><th>Action</th>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>1</th><td>홍길동</td><td>2001/02/12</td>
+      <td>
+        <a href="#" class="delete_link">삭제</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br><br>
+
+<table id="append_table">
+  <colgroup>
+    <col style="width: 70px">
+    <col style="width: 200px">
+    <col style="width: 300px">
+    <col style="width: 200px">
+  </colgroup>
+  <thead>
+  <th>번호</th><th>이름</th><th>생년월일</th><th>Action</th>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td align="center"><input type="text" id="add_no"></td>
+    <td align="center"><input type="text" id="add_name"></td>
+    <td align="center"><input type="text" id="add_birth"></td>
+    <td align="center"><button type="button" id="append_row">데이터추가</button></td>
+  </tr>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(function () {
+
+    $("#append_row").click(function () {
+      $("#list_table").append(
+              $("<tr></tr>").append(
+                      $("<th></th>").append($("#add_no").val()),
+                      $("<td></td>").append($("#add_name").val()),
+                      $("<td></td>").append($("#add_birth").val()),
+                      $("<td></td>").append(
+                              $("<a></a>").attr("href", "#").attr("class", "delete_link").append("삭제")
+                      )
+              )
+      );
+    });
+
+    $(document).on("click", ".delete_link", function () {
+      $(this).parent().parent().remove();
+    });
+
+  })
+
+
+
+</script>
+</body>
+</html>
