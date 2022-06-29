@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<!--tag 추가-->
+
+<div id="demo">
+
+</div>
+
+<button type="button">추가</button>
+
+<script type="text/javascript">
+    $('button').click(function () {
+        /*// 1. 문자열로 추가
+        let txt = "<p>추가된 p 태그</p>";
+        $("#demo").append(txt);
+
+        // 2. 자바 스크립트
+        let js = document.createElement("h3");
+        js.innerHTML = '추가된 h3 태그';
+        $("#demo").append(js);
+*/
+        // 3. jquery
+        let jq = $("<p></p>").html('jquery p 태그 추가');
+        $("#demo").append(jq);
+
+
+    })
+</script>
+
+</body>
+</html>

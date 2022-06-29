@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Title</title>
+
+  <style type="text/css">
+    .back{
+      color: #ffff00;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<table>
+  <col width="50"><col width="200"><col width="150">
+
+  <thead>
+    <tr>
+        <th>번호</th><th>이름</th><th>나이</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr class="cls">
+      <td>1</td><td>aaa</td><td>20</td>
+    </tr>
+    <tr class="cls">
+      <td>2</td><td>bbb</td><td>20</td>
+    </tr>
+    <tr class="cls">
+      <td>3</td><td>ccc</td><td>20</td>
+    </tr>
+  </tbody>
+</table>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    // onclick -> click()
+
+    $("tr.cls").mouseover(function () {
+      $(this).css('background', '#00ff00');
+    });
+    $("tr.cls").mouseout(function () {
+      $(this).css('background', '#fff');
+    })
+  })
+
+  // 클릭 시에 클릭한 부분의 데이터가 alert에 출력되도록 하기.
+  $("td").click(function () {
+    $("#demo").text( $(this).text());
+    /*let txt = $(this).text();
+
+    alert(txt);
+    */
+
+  })
+</script>
+
+<br><br>
+
+<p>hello p tag</p>
+
+<button type="button">클릭</button>
+
+<script type="text/javascript">
+  $("button").click(function () {
+    //setter
+    $('p').text('여기가 p태그입니다');
+    $('p').css('background', '#0000ff');
+
+    // getter
+    let text = $('p').text();
+    alert(text);
+
+    let color = $('p').css('background');
+    alert(color);
+
+    $('p').attr('id', 'pid');
+    let id = $('p').attr('id');
+    alert(id);
+
+    $('p').attr('class', 'back');
+
+
+  });
+
+</script>
+
+</body>
+</html>

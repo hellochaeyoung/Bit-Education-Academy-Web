@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<!--<button type="button" onclick="btnClick()">클릭</button>-->
+<button type="button" id="btn">클릭</button>
+
+<script type="text/javascript">
+    function btnClick() {
+
+    }
+/*
+
+    $("button").click(function () {
+        alert('click');
+    })
+*/
+/*
+    $("#btn").click(function () {
+        alert('#btn click');
+    });*/
+
+    /*
+    $("#btn").click(btnfunc);
+    function btnfunc() {
+        alert('btnfunc()');
+    }
+    */
+
+    $('#btn').on("click", function () {
+        alert('on btnfunc()');
+    })
+</script>
+</body>
+</html>
